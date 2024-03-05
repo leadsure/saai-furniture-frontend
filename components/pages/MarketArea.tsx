@@ -1,10 +1,11 @@
 "use client";
-import { useGetCity } from "@/hooks";
+import { useGetCity, useGetState } from "@/hooks";
 import { useRouter } from "next/navigation";
 
 export const MarketArea = () => {
   const naivgate = useRouter();
   const { cities } = useGetCity();
+  const { states } = useGetState();
 
   return (
     <div
@@ -23,25 +24,85 @@ export const MarketArea = () => {
         </h1>
       </div>
       <div className="mobile:w-[90%] mobile:mt-[50px] flex flex-col gap-[5px] max-mobile:p-[20px]">
-        <h1 className="bg-[#424242ba] h-[30px] flex items-center pl-[10px] text-white text-[20px] font-bold rounded-md ">
-          Delhi
-        </h1>
-        <ul className="flex flex-wrap gap-[20px] items-center">
-          {cities?.map(({ id, name }) => {
-            const link = name.split(" ").join("-");
+        <div className="w-[90%] mt-[50px] flex flex-col gap-[50px]">
+          <div className="flex flex-col gap-[10px]">
+            {states && states.length !== 0 && (
+              <h1 className="bg-[#424242ba] h-[30px] flex items-center pl-[10px] text-white text-[20px] font-bold rounded-md ">
+                States
+              </h1>
+            )}
+            <ul className="flex gap-[20px] items-center flex-wrap">
+              {states?.map(({ name }) => {
+                const createState = name.split(" ").join("-");
+                return (
+                  <li
+                    onClick={() => {
+                      naivgate.push(`/${createState}`);
+                    }}
+                    className=" h-[30px] flex justify-center items-center text-white font-bold bg-[#62626281] hover:bg-[#424242ba] rounded-md cursor-pointer box-content p-[6] pl-[10px] pr-[10px]"
+                  >
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {states?.map(({ name, citys }) => {
             return (
-              <li
-                key={id}
-                onClick={() => {
-                  naivgate.push(`/${link}`);
-                }}
-                className=" h-[30px] flex justify-center items-center text-white font-bold bg-[#62626281] hover:bg-[#424242ba] rounded-md cursor-pointer box-content p-[6] pl-[10px] pr-[10px]"
-              >
-                {name}
-              </li>
+              <div className="flex flex-col gap-[10px]">
+                <h1 className="bg-[#424242ba] h-[30px] flex items-center pl-[10px] text-white text-[20px] font-bold rounded-md ">
+                  {name}
+                </h1>
+                <ul className="flex gap-[20px] items-center">
+                  {citys.map(({ name }) => {
+                    const createdCity = name.split(" ").join("-");
+                    return (
+                      <li
+                        onClick={() => {
+                          naivgate.push(`/${createdCity}`);
+                        }}
+                        className=" h-[30px] flex justify-center items-center text-white font-bold bg-[#62626281] hover:bg-[#424242ba] rounded-md cursor-pointer box-content p-[6] pl-[10px] pr-[10px]"
+                      >
+                        {name}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             );
           })}
-        </ul>
+
+          {cities?.map(({ name, locations }) => {
+            if (locations.length !== 0)
+              return (
+                <div className="flex flex-col gap-[10px]">
+                  <h1 className="bg-[#424242ba] h-[30px] flex items-center pl-[10px] text-white text-[20px] font-bold rounded-md ">
+                    {name}
+                  </h1>
+                  <ul className="flex gap-[20px] items-center">
+                    {locations.map(({ name }) => {
+                      const createdLocation = name
+                        .toLowerCase()
+                        .split(" ")
+                        .join("-");
+                      return (
+                        <li
+                          onClick={() => {
+                            naivgate.push(`/${createdLocation}`);
+                          }}
+                          className=" h-[30px] flex justify-center items-center text-white font-bold bg-[#62626281] hover:bg-[#424242ba] rounded-md cursor-pointer box-content p-[6] pl-[10px] pr-[10px]"
+                        >
+                          {name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            return <div></div>;
+          })}
+        </div>
       </div>
     </div>
   );

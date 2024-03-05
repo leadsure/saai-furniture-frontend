@@ -1,4 +1,5 @@
 import React from "react";
+
 interface InfoCardProp {
   icon: React.ReactNode;
   title: string;

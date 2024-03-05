@@ -22,6 +22,7 @@ export const Navbar: React.FC<NavbarProp> = ({ location }) => {
     if (navbar && navbar.current) {
       scrollOnHide(navbar.current);
     }
+
     window.addEventListener("scroll", (e) => {
       if (window.scrollY >= 100) {
         setChangeBgColor(true);

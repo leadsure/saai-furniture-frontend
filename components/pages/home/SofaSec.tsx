@@ -10,7 +10,7 @@ export const SofaSec: React.FC<{ location?: string }> = ({ location }) => {
           Popular Sofa Set Categories
         </h1>
         <div className="w-screen flex justify-center items-center">
-          <HomeSlider />
+          <HomeSlider location={location} />
         </div>
         <div className="w-[100px] h-[2px] bg-[#2a1b18f1]"></div>
       </div>

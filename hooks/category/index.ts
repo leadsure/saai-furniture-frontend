@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseUrl } from "@/constant";
 
-export interface CategoryDesign {
+export interface CategoryProps {
   id: string;
   title: string;
   description: string;
@@ -17,13 +17,6 @@ export interface CategoryDesign {
   imageUrl: string;
 }
 
-export interface CategoryProps {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
-
 export const useGetCategory = () => {
   const query = useQuery({
     queryKey: ["get-category"],
@@ -35,6 +28,21 @@ export const useGetCategory = () => {
       };
     },
   });
+  return { ...query, categories: query.data?.categories };
+};
+
+export const useGetDiningCategory = () => {
+  const query = useQuery({
+    queryKey: ["get-category"],
+    queryFn: async () => {
+      const { data } = await axios.get(`${baseUrl}/category`);
+
+      return data as {
+        categories: CategoryProps[];
+      };
+    },
+  });
+
   return { ...query, categories: query.data?.categories };
 };
 

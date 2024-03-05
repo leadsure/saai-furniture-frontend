@@ -46,7 +46,7 @@ export const infoObj: Array<{
 
 export const HomePage: React.FC<HomePageProp> = ({ location }) => {
   return (
-    <div className="flex w-screen min-h-screen flex-col items-center justify-between  ">
+    <div className="flex w-screen min-h-screen flex-col items-center justify-between overflow-hidden">
       <Carousel />
       <div className="w-[80%] flex flex-col items-center pt-[50px] pb-[50px]">
         <div className="w-[100%] flex flex-wrap gap-[10px] mobile:gap-[40px] justify-center  items-center">

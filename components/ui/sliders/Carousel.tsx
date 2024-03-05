@@ -19,37 +19,35 @@ import Image from "next/image";
 
 export const Carousel = () => {
   return (
-    <>
-      <Swiper
-        spaceBetween={30}
-        effect={"fade"}
-        pagination={{
-          clickable: true,
-        }}
-        loop
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        modules={[EffectFade, Pagination, Autoplay]}
-        className="mySwiper w-screen h-screen"
-      >
-        {images.map((image, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <Image
-                key={index}
-                src={image}
-                alt="sofa-image"
-                width={800}
-                height={800}
-                quality={40}
-                className="w-screen h-screen"
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </>
+    <Swiper
+      spaceBetween={30}
+      effect={"fade"}
+      pagination={{
+        clickable: true,
+      }}
+      loop
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      modules={[EffectFade, Pagination, Autoplay]}
+      className="mySwiper w-screen h-screen"
+    >
+      {images.map((image, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <Image
+              key={index}
+              src={image}
+              alt="sofa-image"
+              width={800}
+              height={800}
+              quality={40}
+              className="w-screen h-screen"
+            />
+          </SwiperSlide>
+        );
+      })}
+    </Swiper>
   );
 };

@@ -4,7 +4,7 @@ interface BannerProp {
   location?: string;
 }
 
-const locationStyle = "font-bold capitalize";
+const locationStyle = "font-bold capitalize mr-[5px] ml-[5px]";
 
 export const SofaBanner: React.FC<BannerProp> = ({ location }) => {
   return (
@@ -15,22 +15,16 @@ export const SofaBanner: React.FC<BannerProp> = ({ location }) => {
       }}
     >
       <h1 className="text-[20px] mobile:text-[35px] flex justify-center items-center font-bold text-white box-content pl-[20px] pr-[20px]  bg-[#00000085]">
-        Sofa Set Manufacturers{" "}
-        <span className={`${locationStyle}`}>
-          {location && <span>, {location}</span>}
-        </span>
+        Sofa Set
+        {location && (
+          <span className="mr-[5px] ml-[5px]">
+            Manufacturers{" "}
+            {location && (
+              <span className={`${locationStyle}`}>, {location}</span>
+            )}
+          </span>
+        )}
       </h1>
-      <h3 className="text-[10px] mobile:text-[20px] font-bold text-white box-content pl-[20px] pr-[20px]  bg-[#00000085]">
-        From Leading Manufacturers{" "}
-        <span className={`${locationStyle}`}>
-          {location && <span>, {location}</span>}
-        </span>{" "}
-        Sai Furniture Art. The Factory Is Based In{" "}
-        <span className={`${locationStyle}`}>
-          {location && <span>, {location}</span>}
-        </span>{" "}
-        But Products Are Supplied All Over India.
-      </h3>
     </div>
   );
 };

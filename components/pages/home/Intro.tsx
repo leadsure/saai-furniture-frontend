@@ -32,7 +32,7 @@ export const Intro: React.FC<IntroProp> = ({ location }) => {
             blend elegance with affordability.
           </p>
           <p className="max-mobile:text-[13px] text-left">
-            <span className="mobile:text-[18px] font-[600]">
+            <span className="mobile:text-[18px]]">
               Best Living Room Sofa Sets Suppliers in{" "}
               <span className="font-bold">{currentLocation}</span>{" "}
             </span>

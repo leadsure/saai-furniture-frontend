@@ -39,7 +39,7 @@ export const SofaCollection: React.FC<SofaCollectionProp> = ({ location }) => {
                 onClick={() => {
                   navigate.push(`/sofa/${link}`);
                 }}
-                className="min-w-[150px] h-[50px]  text-[#731907] border border-[#731907] rounded-full"
+                className="min-w-[150px] h-[50px]  text-[#731907] border border-[#731907] rounded-full capitalize pr-[10px] pl-[10px]"
               >
                 {title}
               </button>

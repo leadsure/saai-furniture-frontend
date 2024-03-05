@@ -1,8 +1,7 @@
 "use client";
-import { useGetCategory, useGetCategoryById } from "@/hooks";
+import { useGetDesignByTitle, useGetDesigns } from "@/hooks";
 import { CommonSlider, SofaCard } from "../../../ui";
 import { SofaBanner } from "./Banner";
-import { Intro } from "./Intro";
 import { SofaCollection } from "../SofaCollection";
 import Image from "next/image";
 
@@ -19,27 +18,53 @@ export const SofaDynamicPage2: React.FC<SofaProps> = ({
   title,
   title2,
 }) => {
+  const createdTitle1 = title?.split("-").join(" ");
   const createdTitle2 = title2?.split("-").join(" ").toString();
 
-  const { category } = useGetCategoryById({
+  const { design } = useGetDesignByTitle({
     title: createdTitle2,
   });
-  const { categories } = useGetCategory();
+  const designsUrl = [
+    design?.imageUrl,
+    design?.imageUrl2,
+    design?.imageUrl3,
+    design?.imageUrl4,
+  ];
+  const { designs } = useGetDesigns({ categoryTitle: createdTitle1 });
   return (
-    <div className="w-screen min-h-screen flex flex-col  items-center">
-      <SofaBanner title={category?.title} location={location} />
+    <div className="w-screen  flex flex-col  items-center">
+      <SofaBanner title={design?.title} location={location} />
 
-      <div className="relative w-screen h-[70vh] flex flex-col items-center">
-        <div
-          className="relative w-[600px] h-[600px] flex justify-center bg-cover bg-no-repeat"
-          style={{
-            backgroundImage: `url('${category?.imageUrl}')`,
-          }}
-        >
-          <h1 className="absolute top-[60px] text-[25px] font-[500]">
-            {category && category.title}
+      <div className="w-screen  flex flex-col items-center">
+        <div className="w-[85vw] flex flex-col items-center gap-[20px] mt-[50px]">
+          <h1 className="text-[25px] font-bold capitalize">
+            {design && design.title}
           </h1>
-          <button className="absolute bottom-0 w-[130px] mobile:w-[150px] h-[40px] bg-[#2A1B18] text-[11px] font-bold text-white rounded-full">
+          <div className="w-screen flex flex-wrap justify-center gap-[50px]">
+            {designsUrl.map((url, index) => {
+              if (url && url !== "") {
+                return (
+                  <Image
+                    src={url}
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="w-[400px] h-[300px] shadowww"
+                  />
+                );
+              }
+            })}
+            {design && design.imageUrl && (
+              <Image
+                src={design?.imageUrl}
+                alt=""
+                width={400}
+                height={400}
+                className="w-[400px] h-[300px] shadowww"
+              />
+            )}
+          </div>
+          <button className=" w-[130px] mobile:w-[150px] h-[40px] bg-[#2A1B18] text-[11px] font-bold text-white rounded-full">
             GET BEST QUOTE
           </button>
         </div>
@@ -52,8 +77,8 @@ export const SofaDynamicPage2: React.FC<SofaProps> = ({
           </h1>
           <div className="w-[100px] h-[3px] bg-[#B19777]"></div>
         </div>
-        <div className="w-[90%] flex flex-wrap justify-center items-center gap-[40px] mt-[30px] mb-[50px]">
-          {categories?.map((data) => {
+        <div className="w-[90vw] flex flex-wrap justify-center items-center gap-[40px] mt-[30px] mb-[50px]">
+          {designs?.map((data) => {
             const createdTitle = data.title.split(" ").join("-");
             return (
               <SofaCard

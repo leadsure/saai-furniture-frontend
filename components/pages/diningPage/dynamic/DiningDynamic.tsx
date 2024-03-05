@@ -1,16 +1,16 @@
 "use client";
 import { useGetCategory, useGetCategoryById, useGetDesigns } from "@/hooks";
-import { CommonSlider, SofaCard } from "../../../ui";
+import { CommonSlider, DiningCard, SofaCard } from "../../../ui";
 import { SofaBanner } from "./Banner";
 import { Intro } from "./Intro";
-import { SofaCollection } from "../SofaCollection";
+import { SofaCollection } from "../../sofaPage";
 
 interface SofaProps {
   location?: string;
   title?: string;
 }
 
-export const SofaDynamicPage: React.FC<SofaProps> = ({ location, title }) => {
+export const DiningDynamicPage: React.FC<SofaProps> = ({ location, title }) => {
   const createdTitle = title?.split("-").join(" ").trim();
 
   const { designs } = useGetDesigns({ categoryTitle: createdTitle });
@@ -39,7 +39,7 @@ export const SofaDynamicPage: React.FC<SofaProps> = ({ location, title }) => {
           {designs?.map((data) => {
             const createdTitle = data.title.split(" ").join("-");
             return (
-              <SofaCard
+              <DiningCard
                 key={data.id}
                 imageUrl={data.imageUrl}
                 title={data.title}

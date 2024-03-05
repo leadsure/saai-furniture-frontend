@@ -13,20 +13,32 @@ export const DesignerSofaSec: React.FC<DesignSofaSec> = ({ location }) => {
           <h1 className="max-mobile:text-center text-[30px] mobile:text-[37px] font-bold text-[#B19777] capitalize">
             designer sofa
           </h1>
-          <p className="text-[18px] mobile:text-[25px]">
-            Leading Designer Sofa Manufacturers in{" "}
-            <span className="font-bold">{currentLocation}</span>
+          <p className="text-[18px] mobile:text-[25px] capitalize">
+            Leading Designer Sofa Manufacturers
+            {location ? (
+              <span className="font-bold ml-[5px] mr-[5px] capitalize">
+                {currentLocation}
+              </span>
+            ) : (
+              <span className="font-bold  ml-[5px] mr-[5px]">India</span>
+            )}
           </p>
         </div>
         <p className="text-[16px] mobile:text-[20px]">
           Sai Furniture Art offers unique variety of sofas that is available in
           different styles and sizes as per customer requirements. We are a
-          popular designer sofa set manufacturers and suppliers from{" "}
-          <span className="font-bold">{currentLocation}</span>, India. The
-          requirement for our sofa set has grown to a large degree over the
-          years due to its excellent finish, satisfaction and affordable price.
-          Following the latest styles our sofas add appeal and beauty to your
-          home
+          popular designer sofa set manufacturers and suppliers from
+          {location ? (
+            <span className="font-bold ml-[5px] mr-[5px] capi">
+              {currentLocation}
+            </span>
+          ) : (
+            <span className="font-bold ml-[5px] mr-[5px]">India</span>
+          )}
+          , India. The requirement for our sofa set has grown to a large degree
+          over the years due to its excellent finish, satisfaction and
+          affordable price. Following the latest styles our sofas add appeal and
+          beauty to your home
         </p>
       </div>
       <div className="mobile:relative flex max-mobile:flex-col justify-end items-center mt-[40px] gap-[20px] text-white">

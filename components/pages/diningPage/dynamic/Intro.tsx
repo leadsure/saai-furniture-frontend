@@ -6,7 +6,7 @@ interface IntroProp {
   imageUrl?: string;
 }
 const h2Style = "text-[20px] font-[500]";
-const locationStyle = "font-bold capitalize ml-[5px] mr-[5px]";
+const locationStyle = "font-bold capitalize ml-[3px] mr-[3px]";
 
 export const Intro: React.FC<IntroProp> = ({ location, paras, imageUrl }) => {
   const newLocation = location?.split("-").join(" ");

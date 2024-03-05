@@ -47,7 +47,7 @@ interface AboutPageProp {
 export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
   const currentLocation = location?.split("-").join(" ");
   return (
-    <div className=" w-screen   flex flex-col justify-center items-center  ">
+    <div className=" w-screen flex flex-col  items-center  ">
       <div className="relative w-screen">
         <div
           className="absolute flex justify-center items-center top-0 w-screen h-[350px] bg-cover bg-no-repeat bg-bottom bg-[rgba(0,0,0,0.4)] bg-blend-multiply"
@@ -56,16 +56,16 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
               "url('https://www.saifurnitureart.com/designer/images/about-banner.jpg')",
           }}
         >
-          <h1 className="text-[30px] text-white font-[600] box-content p-[5px] pr-[20px] pl-[20px] bg-[rgba(0,0,0,0.4)]">
+          <h1 className="text-[30px] text-white font-[600] box-content p-[5px] pr-[20px] pl-[20px] bg-[rgba(0,0,0,0.4)] capitalize">
             About Sai Furniture Art {location?.split("-").join(" ")}
           </h1>
         </div>
       </div>
-      <div className="w-[85vw] flex flex-col justify-center mt-[400px]">
+      <div className="w-[85vw] flex flex-col  mt-[400px]">
         <div className="w-[100%] flex flex-col items-center  gap-[20px] ">
           <div className="flex flex-col items-center gap-[10px]">
-            <h1 className="text-[26px] text-center mobile:text-[37px] font-bold text-[#B19777] capitalize">
-              Top 5 Best Royal Furniture Manufacturers in{" "}
+            <h1 className="text-[26px] text-center mobile:text-[37px] font-bold text-[#B19777] capitalize flex items-center gap-[10px]">
+              Top 5 Best Royal Furniture Manufacturers in
               {location ? (
                 <span className="text-bold">{currentLocation}</span>
               ) : (
@@ -76,20 +76,20 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
           </div>
           <div className="w-[100%] flex max-mobile:flex-col-reverse  justify-center items-center">
             <div className=" mobile:w-[50%] flex flex-col">
-              <div className="flex flex-col gap-[7px] mt-[20px]">
+              <div className="flex flex-col gap-[10px] mt-[20px]">
                 <p>
                   Top 5 Best Royal Furniture Manufacturers in{" "}
                   {location ? (
                     <span className="text-bold">{currentLocation}</span>
                   ) : (
                     <span className="text-bold">India</span>
-                  )}{" "}
+                  )}
                   Meet Sai Furniture Art- the right platform to experience the
                   luxurious and classical range of elegant sofa sets. With
                   significant years of experience in this respective field, we
                   have made incredible growth to match your comfort level along
                   with sophisticated design. Further, we are the leading Top 5
-                  Best Royal Furniture Manufacturers in{" "}
+                  Best Royal Furniture Manufacturers in
                   {location ? (
                     <span className="text-bold">{currentLocation}</span>
                   ) : (
@@ -107,8 +107,13 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
                   reach out to our prompt services.
                 </p>
                 <p>
-                  <span className="text-[18px] font-[600]">
-                    Best Living Room Sofa Sets Suppliers in india
+                  <span className="flex items-center gap-[10px]">
+                    Best Living Room Sofa Sets Suppliers in
+                    {location ? (
+                      <span className="text-[18px] font-[600]">{location}</span>
+                    ) : (
+                      <span className="text-[18px] font-[600]">India</span>
+                    )}
                   </span>
                   If you’re searching for the best Living Room Sofa Sets
                   Suppliers in india, choose Sai Furniture Art, one of the most
@@ -147,7 +152,7 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
           </div>
         </div>
       </div>
-      <div className="w-[85vw] flex  flex-wrap gap-[15px] mt-[50px] mb-[50px]">
+      <div className="w-[85vw] flex  flex-wrap justify-center gap-[15px] mt-[50px] mb-[50px]">
         {aboutObj.map(({ icon, title, info }, index) => {
           return (
             <AboutCard key={index} icon={icon} title={title} info={info} />
@@ -156,7 +161,7 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
       </div>
       <div className="mobile:w-[85vw]">
         <div className="mt-[50px] mb-[50px]">
-          <DesignerSofaSec />
+          <DesignerSofaSec location={location} />
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export interface Location {
 export interface City {
   id: string;
   name: string;
-  citys: Location[];
+  locations: Location[];
 }
 
 export interface State {

@@ -15,18 +15,16 @@ interface CommonSlider {
 }
 
 export const CommonSlider: React.FC<CommonSlider> = ({ location }) => {
-  const [mounted, setMounted] = useState(false);
   const { categories } = useGetCategory();
 
-  useEffect(() => {
-    if (categories) {
-      setMounted(true);
-    }
-  }, [categories]);
-  if (!mounted) return <div></div>;
-
   return (
-    <div className="w-screen h-fit flex justify-center items-center">
+    <div className="flex flex-col items-center gap-[20px]">
+      <div className="flex flex-col items-center gap-[10px]">
+        <h1 className="text-[25px] mobile:text-[30px] font-bold  capitalize">
+          you may also like
+        </h1>
+        <div className="w-[100px] h-[3px] bg-[#B19777]"></div>
+      </div>
       <Swiper
         slidesPerView={1}
         autoplay={{
@@ -46,23 +44,21 @@ export const CommonSlider: React.FC<CommonSlider> = ({ location }) => {
         modules={[Pagination, Autoplay]}
         className="mySwiper w-[80vw] h-[500px]"
       >
-        {categories
-          ?.filter(({ title }) => title.toLowerCase() !== "dining set")
-          .map(({ id, imageUrl, title, description }) => {
-            const createdTitle = title.split(" ").join("-");
-            return (
-              <SwiperSlide key={id}>
-                <SliderSofaCard
-                  location={location}
-                  link={createdTitle}
-                  imageUrl={imageUrl}
-                  title={title}
-                  onClickQuote={() => {}}
-                  onClickMore={() => {}}
-                />
-              </SwiperSlide>
-            );
-          })}
+        {categories?.map(({ id, imageUrl, title, description }) => {
+          const createdTitle = title.split(" ").join("-");
+          return (
+            <SwiperSlide key={id}>
+              <SliderSofaCard
+                location={location}
+                link={createdTitle}
+                imageUrl={imageUrl}
+                title={title}
+                onClickQuote={() => {}}
+                onClickMore={() => {}}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
