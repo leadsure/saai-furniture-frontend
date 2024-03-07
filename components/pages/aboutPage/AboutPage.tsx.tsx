@@ -142,6 +142,7 @@ export const AboutPage: React.FC<AboutPageProp> = ({ location }) => {
                 </p>
               </div>
             </div>
+            {/* about image */}
             <div className="mobile:w-[40%] h-[100%] flex justify-end">
               <img
                 src="/home/intro.jpeg"

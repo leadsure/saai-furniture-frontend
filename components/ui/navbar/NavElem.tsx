@@ -14,7 +14,7 @@ export const navObj: Array<{
     link: "/",
   },
   {
-    title: "company profile",
+    title: "about us",
     link: "/about",
   },
   {},
@@ -58,7 +58,7 @@ export const NavElem: React.FC<NavElemProp> = ({ location }) => {
             : navigate.push(`/about`);
         }}
       >
-        company profile
+       about us
       </li>
       <li className="text-[20px] font-[600]  capitalize cursor-pointer">
         <SofaSetDropDown location={location} />

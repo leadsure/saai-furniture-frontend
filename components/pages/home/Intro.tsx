@@ -11,7 +11,7 @@ export const Intro: React.FC<IntroProp> = ({ location }) => {
       <div className="mobile:w-[50%] flex flex-col">
         <div className="w-[100%] flex flex-col  justify-center gap-[10px]">
           <h1 className="  flex flex-wrap text-[25px] mobile:text-[37px] font-bold text-[#B19777] capitalize gap-[10px]">
-            <span>Welcome To Sai Furniture Art</span>
+            <span>Welcome To Sai Furniture Art hii there</span>
 
             <span>{currentLocation}</span>
           </h1>

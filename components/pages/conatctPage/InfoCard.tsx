@@ -21,7 +21,7 @@ export const InfoCard = () => {
           <IoCall className="w-[30px] h-[30px]" />
           <div className="flex flex-col gap-[10px] w-[80%]">
             <span className="font-[700]">phone number</span>
-            <span className="font-[500]">(+91) 7000827363</span>
+            <span className="font-[500]">(+91) 9560430225</span>
           </div>
         </div>
         {/* email */}
@@ -29,7 +29,7 @@ export const InfoCard = () => {
           <FaEnvelope className="w-[30px] h-[30px]" />
           <div className="flex flex-col gap-[10px] w-[80%]">
             <span className="font-[700]">Email</span>
-            <span className="font-[500]">sparkleworldstudio@gmail.com</span>
+            <span className="font-[500]">leadssure2021@gmail.com</span>
           </div>
         </div>
         {/* addredd */}
@@ -38,7 +38,7 @@ export const InfoCard = () => {
           <div className="flex flex-col gap-[10px] w-[80%]">
             <span className="font-[700]">address</span>
             <span className="font-[500]">
-              318, 3rd Floor, City Center Mall, Pandri, Raipur C.G.
+              392 2nd floor chand nagar new Delhi 11008
             </span>
           </div>
         </div>
